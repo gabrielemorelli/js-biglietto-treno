@@ -5,21 +5,25 @@ let eta = prompt('Quanti anni ha il passeggero?');
 
 
  let costokm= 0.21;
- let sconto= 0;
-
-let prezzo= km * costokm;
-console.log(prezzo);
+ let prezzo= km * costokm;
 
 if (eta < 18 ) {
-    let sconto = (prezzo * 20) / 100;
+    var sconto = (km * costokm * 20) / 100;
     console.log(sconto);
+    document.getElementById('sconto').innerHTML = "Hai diritto allo sconto del 20% " 
     }
 
-if (eta > 65 ) {
-    let sconto = (prezzo * 40) /100;
+ else if (eta > 65 ) {
+    var sconto = (km * costokm * 40) /100;
     console.log(sconto);
+    document.getElementById('sconto').innerHTML = "Hai diritto allo sconto del 40% " 
 }
 
+
+else{
+    var sconto=0;
+ }
    
 let prezzofinale= prezzo - sconto;
 console.log(prezzofinale);
+document.getElementById('prezzo').innerHTML = "il prezzo del biglietto è di " + prezzofinale.toFixed(2);
